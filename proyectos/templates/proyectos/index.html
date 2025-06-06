@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio de Diego</title>
+  <!-- Cargar CSS desde la carpeta estática -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Fuente Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Encabezado con logo y menú -->
+  <header class="header">
+    <!-- Logo como imagen (PNG) -->
+    <a href="/" class="logo">
+      <img src="{% static 'images/logov2.png' %}" class="logo-img">
+    </a>
+    <!-- Título centrado -->
+    <h1 class="header-title">
+      <span class="code-blue">def</span> diego_rodriguez_web<span class="code-blue">()</span>:
+    </h1>
+    <!-- <h1 class="header-title">Diego Rodríguez Web</h1> -->
+    <a href="{% url 'admin:index' %}" class="admin-btn">⚙️</a>
+  </header>
+
+  <div class="container">
+    <main>
+      <section class="resumen-section">
+        <h2 class="resumen-titulo">{{ resumen.titulo }}</h2>
+        <div class="resumen-contenido">
+          <p class="resumen-descripcion">{{ resumen.descripcion_principal }}</p>
+          <p class="resumen-detalles">{{ resumen.descripcion_secundaria|linebreaksbr }}</p>
+        </div>
+      </section>
+      <section id="servicios">
+        <h2>Servicios</h2>
+        <div class="lista-servicios">
+          {% for servicio in servicios %}
+          <div class="servicio-item">
+            <i class="{{ servicio.icono }}"></i>
+            <h3>{{ servicio.titulo }}</h3>
+            <p>{{ servicio.descripcion }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      <section>
+        <h2>Proyectos</h2>
+        <ul class="lista-proyectos">
+          {% for proyecto in proyectos %}
+          {% if proyecto.imagen %}
+          <li class="proyecto-item" style="background-image: url('{{ proyecto.imagen.url }}');">
+            {% else %}
+          <li class="proyecto-item">
+            {% endif %}
+            <h3>{{ proyecto.titulo }}</h3>
+            <p>{{ proyecto.descripcion }}</p>
+            {% if proyecto.link %}
+            <a href="{{ proyecto.link }}" target="_blank">Github Link</a>
+            {% endif %}
+          </li>
+          {% empty %}
+          <li>
+            <h3 style="text-align: center; width: 100%;">Proyectos en desarrollo. Disculpa las molestias.</h3>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section>
+        <h2>Tecnologías y Habilidades</h2>
+        <ul class="lista-proyectos">
+          {% for habilidad in habilidades %}
+          {% if habilidad.icono %}
+          <li class="proyecto-item" style="background-image: url('{{ habilidad.icono.url }}');">
+            {% else %}
+          <li class="proyecto-item">
+            {% endif %}
+            <h3>{{ habilidad.nombre }}</h3>
+            <p>{{ habilidad.descripcion }}</p>
+            <div class="nivel-barra">
+              <div class="nivel-barra-inner" style="--nivel: {{ habilidad.nivel }}%;">
+                <span class="nivel-texto">{{ habilidad.nivel }} / 100</span>
+              </div>
+            </div>
+          </li>
+          {% empty %}
+          <li>
+            <h3 style="text-align: center; width: 100%;">Aún no hay habilidades registradas.</h3>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+  </div>
+  <section id="blog-destacado" class="blog-section">
+    <h2>Últimas entradas del Blog</h2>
+    <p>Explora ideas, aprendizajes y novedades del mundo del desarrollo web.</p>
+    <a href="{% url 'blog' %}" class="blog-button">Ir al Blog</a>
+  </section>
+  <footer>
+    <p>&copy; 2025 - Diego Rodríguez | Web developer and programmer |<a href="mailto:tu.email@example.com">
+        Envíame un correo</a>
+    </p>
+    <div id="datetime" class="datetime">9/05 - 9:43</div>
+    <div class="social-buttons">
+      <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://linktr.ee/tuusuario" target="_blank" class="social-link">
+        <i class="fas fa-link"></i>
+      </a>
+      <a href="https://wa.me/1234567890" target="_blank" class="social-link">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <div class="coding-banner">
+      <div class="banner-track">
+        <span>⚙️ Evita repetir código ⚙️</span>
+        <span>📟 Console.log es tu mejor amigo 📟</span>
+        <span>✂️ Divide y vencerás ✂️</span>
+        <span>📦 No subas node_modules 📦</span>
+        <span>📝 Usa nombres descriptivos 📝</span>
+        <span>🔧 El código sin pruebas está roto 🔧</span>
+        <span>💾 Haz backups antes de experimentar 💾</span>
+        <span>⏳ Las promesas no se resuelven solas ⏳</span>
+        <span>🎨 CSS no es magia, pero casi 🎨</span>
+        <span>🧠 Si no lo entiendes mañana, hoy lo hiciste mal 🧠</span>
+        <!-- Clonado para bucle infinito -->
+        <span>⚙️ Evita repetir código ⚙️</span>
+        <span>📟 Console.log es tu mejor amigo 📟</span>
+        <span>✂️ Divide y vencerás ✂️</span>
+        <span>📦 No subas node_modules 📦</span>
+        <span>📝 Usa nombres descriptivos 📝</span>
+        <span>🔧 El código sin pruebas está roto 🔧</span>
+        <span>💾 Haz backups antes de experimentar 💾</span>
+        <span>⏳ Las promesas no se resuelven solas ⏳</span>
+        <span>🎨 CSS no es magia, pero casi 🎨</span>
+        <span>🧠 Si no lo entiendes mañana, hoy lo hiciste mal 🧠</span>
+      </div>
+    </div>
+  </footer>
+  <!-- Botón volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba">↑</button>
+
+  <script>
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.addEventListener("scroll", () => {
+      // Mostrar el botón después de que el usuario haya bajado 300px
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("show");
+      } else {
+        scrollToTopBtn.classList.remove("show");
+      }
+    });
+
+    // Función para hacer el scroll suave hacia arriba
+    function scrollToTop() {
+      const scrollDuration = 330; // Duración en milisegundos
+      const scrollStep = -window.scrollY / (scrollDuration / 15); // Determina el tamaño del paso
+      let scrollInterval = setInterval(function () {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep); // Desplazamiento hacia arriba
+        } else {
+          clearInterval(scrollInterval); // Detener el intervalo cuando lleguemos arriba
+        }
+      }, 15); // El intervalo de 15 ms controla la frecuencia del movimiento
+    }
+
+    // Cuando el usuario hace clic en el botón, ejecuta el scroll
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+
+    const headerTitle = document.querySelector('.header-title');
+
+    // Si deseas cambiar el efecto con JavaScript
+    headerTitle.addEventListener('mouseenter', () => {
+      headerTitle.style.transition = 'background-position 1s ease-in-out'; // Modificamos la transición si es necesario
+    });
+
+    headerTitle.addEventListener('mouseleave', () => {
+      headerTitle.style.transition = 'background-position 0.5s ease'; // Hacemos que vuelva suavemente
+    });
+
+  </script>
+  <!-- MagicMouse.js -->
+  <script src="{% static 'js/magicmouse.min.js' %}"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const options = {
+        cursorOuter: "circle-basic",
+        hoverEffect: "pointer-blur",
+        hoverItemMove: false,
+        defaultCursor: false,
+        outerWidth: 10,
+        outerHeight: 10,
+      };
+      magicMouse(options);
+    });
+  </script>
+
+  <script>
+    function updateDateTime() {
+      const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const now = new Date();
+      const diaSemana = dias[now.getDay()];
+      const horas = now.getHours().toString().padStart(2, '0');
+      const minutos = now.getMinutes().toString().padStart(2, '0');
+      const segundos = now.getSeconds().toString().padStart(2, '0');
+
+      const contenido = `${diaSemana} - ${horas}:${minutos}:${segundos}`;
+      const brackets = `<span class="bracket">[</span>${contenido}<span class="bracket">]</span>`;
+
+      document.getElementById('datetime').innerHTML = brackets;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+</body>
+
+</html>

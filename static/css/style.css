@@ -1,0 +1,621 @@
+/* Reseteo de márgenes y paddings */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo de la página */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f1ebeb;
+  background-image: url("../images/backgroundd.jpg");
+  /* Ruta relativa desde el CSS */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Aseguramos que la altura del body sea siempre 100vh */
+  text-align: center;
+  color: #333;
+  flex-direction: column;
+  /* Aseguramos que el contenido se quede centrado */
+}
+
+/* Encabezado fijo */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  /* Para que el logo y el botón admin estén en los extremos */
+  align-items: center;
+  z-index: 1000;
+  /* Aseguramos que el header siempre esté por encima */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Eliminamos el margen extra alrededor del logo */
+  margin: 0;
+  gap: 20px;
+}
+
+.header-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  color: #333;
+  /* Color normal del texto */
+}
+
+/* Logo (imagen) */
+.logo-img {
+  height: 75px;
+  /* Mantenemos la proporción en la altura */
+  width: auto;
+  /* Aumentamos el ancho del logo, ahora más largo hacia los lados */
+  display: block;
+  /* Esto elimina cualquier espacio extra debajo de la imagen */
+  margin: 0;
+  /* Eliminamos los márgenes alrededor de la imagen */
+}
+
+/* Botón de Admin */
+.admin-btn {
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Efecto al pasar el ratón */
+.admin-btn:hover {
+  transform: scale(1.35);
+  /*Seagrandaunpoco*/
+  -webkit-transform: scale(1.35);
+  -moz-transform: scale(1.35);
+  -ms-transform: scale(1.35);
+  -o-transform: scale(1.35);
+}
+
+/* Contenedor principal */
+.container {
+  width: 95%;
+  max-width: 1000px;
+  background-color: white;
+  padding: 12px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+  margin-bottom: 20px;
+  /*Estoaseguraqueelcontenidonosesolapeconelheaderfijo*/
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  -webkit-border-radius: 25px;
+}
+
+
+/* Títulos */
+h1 {
+  color: #333;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+ul li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Estilo de los enlaces */
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Estilo general para la lista de proyectos */
+.lista-proyectos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.proyecto-item {
+  width: 100%;
+  max-width: 300px;
+  /* Ajusta el tamaño de los elementos de la lista */
+  height: 169px;
+  /* Puedes ajustar la altura */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  padding: 15px;
+  color: white;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  background-blend-mode: darken;
+}
+
+.proyecto-item h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.proyecto-item p {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.proyecto-item a {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.proyecto-item a:hover {
+  color: #ffd700;
+  /* Color dorado cuando pasa el ratón */
+}
+
+/* Estilo para el botón "Volver arriba" */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  /* Espaciado desde el fondo de la página */
+  right: 20px;
+  /* Espaciado desde la derecha */
+  background-color: white;
+  /* Fondo oscuro */
+  color: #333;
+  /* Texto blanco */
+  border: 2px solid white;
+  /* Borde con el mismo color que el fondo */
+  border-radius: 5px;
+  /* Bordes redondeados pequeños */
+  padding: 10px 15px;
+  /* Espaciado dentro del botón */
+  font-size: 1.5rem;
+  /* Tamaño de la fuente */
+  cursor: pointer;
+  /* Cambiar el cursor cuando pasa sobre el botón */
+  opacity: 0;
+  /* Inicialmente oculto */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Transiciones suaves */
+  z-index: 1000;
+  /* Asegura que esté encima de otros elementos */
+}
+
+/* Mostrar el botón cuando se haya hecho scroll */
+#scrollToTopBtn.show {
+  opacity: 1;
+  /* Hacerlo visible */
+  transform: translateY(0);
+  /* Asegura que el botón se quede en su lugar */
+}
+
+/* Efecto cuando se pasa el ratón sobre el botón */
+#scrollToTopBtn:hover {
+  border: 2px solid #333;
+}
+
+.nivel-barra {
+  width: 100%;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 50px;
+  position: relative;
+}
+
+.nivel-barra-inner {
+  height: 100%;
+  background-color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  width: var(--nivel);
+}
+
+.nivel-texto {
+  position: relative;
+  z-index: 1;
+  font-size: 0.9rem;
+}
+
+/* Sección de resumen personal */
+.resumen-section {
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px #0057a0;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.resumen-titulo {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.resumen-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resumen-descripcion {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.resumen-detalles {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.lista-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.servicio-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 5px #0057a0;
+  width: 260px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.servicio-item:hover {
+  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -o-transform: scale(1.03);
+}
+
+.servicio-item i {
+  font-size: 1.5rem;
+  color: #0057a0;
+  margin-bottom: 10px;
+}
+
+/* Descripción más pequeña */
+.servicio-item p {
+  font-size: 0.79rem;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  body {
+    justify-content: center;
+    /* Aseguramos que el contenido se mantenga centrado */
+    align-items: center;
+    /* Centramos los elementos */
+    flex-direction: column;
+    /* Evitamos que se apilen en una fila */
+  }
+
+  .container {
+    padding: 7px;
+    width: 90%;
+    max-width: 95%;
+    margin-top: 140px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  ul li {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+
+  .admin-btn {
+    display: none;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+
+  #scrollToTopBtn {
+    padding: 8px 12px;
+    font-size: 1.2rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .header-title {
+    flex: none;
+    font-size: 1.5rem;
+  }
+
+  .servicio-item p,
+  .servicio-item i {
+    display: none;
+  }
+
+  .servicio-item h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+}
+
+/* Estilos para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  body {
+    justify-content: center;
+    /* Aseguramos que se quede centrado verticalmente */
+  }
+
+  .container {
+    padding: 12px;
+    width: 95%;
+    /* Aumentamos el ancho para aprovechar mejor el espacio */
+    max-width: 100%;
+    margin-top: 120px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  #scrollToTopBtn {
+    padding: 6px 10px;
+    font-size: 1rem;
+  }
+
+  .header-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .logo-img {
+    height: 45px;
+  }
+
+  .admin-btn {
+    display: none;
+  }
+
+  .resumen-descripcion,
+  .resumen-detalles {
+    display: none;
+  }
+
+  .social-buttons .social-link i {
+    font-size: 20px;
+  }
+
+  .social-buttons {
+    margin: 10px 0;
+  }
+
+  .social-link {
+    margin: 0 5px;
+  }
+
+  .servicio-item p,
+  .servicio-item i {
+    display: none;
+  }
+
+  .servicio-item h3 {
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+}
+
+/* Cambia el borde del cursor principal */
+#magicMouseCursor {
+  border-color: rgb(0, 0, 0) !important;
+}
+
+/* Cambia el fondo del puntero */
+#magicPointer {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+/* Cambia el borde y la sombra difusa del puntero cuando está en modo blur */
+#magicPointer.pointer-blur {
+  border-color: green !important;
+  box-shadow: 0px 0px 15px -5px green !important;
+}
+
+.coding-banner {
+  width: 100vw;
+  overflow: hidden;
+  background-color: #0057a0;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.banner-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 48s linear infinite;
+  -webkit-animation: marquee 48s linear infinite;
+  animation-play-state: running;
+  /*Pordefectolaanimaciónestáenmarcha*/
+  -webkit-animation-play-state: running;
+  /*Compatibilidadconnavegadoresantiguos*/
+}
+
+.banner-track:hover {
+  animation-play-state: paused;
+  /* Cuando el ratón pasa por encima, la animación se pausa */
+  -webkit-animation-play-state: paused;
+  /* Compatibilidad con navegadores antiguos */
+}
+
+.banner-track span {
+  display: inline-block;
+  margin-right: 50px;
+  /* Espacio entre frases */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.datetime {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+.datetime .bracket {
+  color: #0057a0;
+  font-weight: bold;
+}
+
+.code-blue {
+  color: #0057a0;
+  font-weight: bold;
+}
+
+.social-buttons {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-link {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 28px;
+  color: #444;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+  color: #0072b1;
+  /* Azul LinkedIn */
+}
+
+.social-link:nth-child(2):hover {
+  color: #6c63ff;
+  /* Morado Linktree */
+}
+
+.social-link:nth-child(3):hover {
+  color: #25D366;
+  /* Verde WhatsApp */
+}

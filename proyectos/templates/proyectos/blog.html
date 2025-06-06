@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+
+<body>
+  <h1>Blog</h1>
+  <!-- Botón para volver al index -->
+  <div class="volver-btn-container">
+    <a href="{% url 'inicio' %}" class="volver-btn">Volver al índice</a>
+  </div>
+  <div class="blog-container">
+    {% for entrada in entradas %}
+    <article class="entrada">
+      <h2>{{ entrada.titulo }}</h2>
+      {% if entrada.imagen %}
+      <img class="entrada-img" src="{{ entrada.imagen.url }}" alt="{{ entrada.titulo }}">
+      {% endif %}
+      <p>{{ entrada.descripcion }}</p>
+      <p><em>{{ entrada.fecha_creacion|date:"d M Y" }}</em></p>
+    </article>
+    {% empty %}
+    <p>No hay entradas aún.</p>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
